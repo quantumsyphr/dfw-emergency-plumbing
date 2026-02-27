@@ -12,23 +12,23 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "FastFlow Plumbing | 24/7 Emergency Plumbing Services",
-    template: "%s | FastFlow Plumbing",
+    default: "AquaTorque Plumbing | 24/7 Emergency Plumbing Services",
+    template: "%s | AquaTorque Plumbing",
   },
   description:
     "24/7 emergency plumbing services across the DFW metroplex. Fast 30-minute response for burst pipes, drain cleaning, leak detection, and more. Call now!",
-  metadataBase: new URL("https://fastflowplumbing.com"),
+  metadataBase: new URL("https://aquatorqueplumbing.com"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "FastFlow Plumbing",
-    title: "FastFlow Plumbing | 24/7 Emergency Plumbing Services",
+    siteName: "AquaTorque Plumbing",
+    title: "AquaTorque Plumbing | 24/7 Emergency Plumbing Services",
     description:
       "24/7 emergency plumbing services across the DFW metroplex. Fast 30-minute response for burst pipes, drain cleaning, leak detection, and more. Call now!",
   },
   twitter: {
     card: "summary_large_image",
-    title: "FastFlow Plumbing | 24/7 Emergency Plumbing Services",
+    title: "AquaTorque Plumbing | 24/7 Emergency Plumbing Services",
     description:
       "24/7 emergency plumbing services across the DFW metroplex. Fast 30-minute response for burst pipes, drain cleaning, leak detection, and more. Call now!",
   },

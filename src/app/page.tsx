@@ -20,19 +20,19 @@ import type { FAQ } from "@/types";
 import { MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "DFW Emergency Plumber | 24/7 Fast Response | FastFlow Plumbing",
+  title: "DFW Emergency Plumber | 24/7 Fast Response | AquaTorque Plumbing",
   description:
-    "Need an emergency plumber in DFW? FastFlow Plumbing offers 24/7 service across Dallas-Fort Worth with 30-minute response times. Call now for burst pipes, drain cleaning, leak detection & more.",
+    "Need an emergency plumber in DFW? AquaTorque Plumbing offers 24/7 service across Dallas-Fort Worth with 30-minute response times. Call now for burst pipes, drain cleaning, leak detection & more.",
   openGraph: {
-    title: "DFW Emergency Plumber | 24/7 Fast Response | FastFlow Plumbing",
+    title: "DFW Emergency Plumber | 24/7 Fast Response | AquaTorque Plumbing",
     description:
-      "Need an emergency plumber in DFW? FastFlow Plumbing offers 24/7 service across Dallas-Fort Worth with 30-minute response times. Call now!",
+      "Need an emergency plumber in DFW? AquaTorque Plumbing offers 24/7 service across Dallas-Fort Worth with 30-minute response times. Call now!",
     url: COMPANY.domain,
   },
   twitter: {
-    title: "DFW Emergency Plumber | 24/7 Fast Response | FastFlow Plumbing",
+    title: "DFW Emergency Plumber | 24/7 Fast Response | AquaTorque Plumbing",
     description:
-      "Need an emergency plumber in DFW? FastFlow Plumbing offers 24/7 service across Dallas-Fort Worth with 30-minute response times. Call now!",
+      "Need an emergency plumber in DFW? AquaTorque Plumbing offers 24/7 service across Dallas-Fort Worth with 30-minute response times. Call now!",
   },
 };
 

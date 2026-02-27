@@ -82,10 +82,10 @@ export function Footer() {
               <li className="text-sm">
                 Email:{" "}
                 <a
-                  href="mailto:info@fastflowplumbing.com"
+                  href="mailto:info@aquatorqueplumbing.com"
                   className="hover:text-white transition-colors"
                 >
-                  info@fastflowplumbing.com
+                  info@aquatorqueplumbing.com
                 </a>
               </li>
               <li className="text-sm font-medium text-green-400">

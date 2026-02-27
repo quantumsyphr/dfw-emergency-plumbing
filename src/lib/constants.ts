@@ -1,12 +1,12 @@
 import type { Service, Testimonial, ProcessStep } from "@/types";
 
 export const COMPANY = {
-  name: "FastFlow Plumbing",
+  name: "AquaTorque Plumbing",
   phone: "(555) 123-4567",
   phoneHref: "tel:+15551234567",
   tagline: "24/7 Emergency Plumbing Services",
   responseTime: "30 minutes",
-  domain: "https://fastflowplumbing.com",
+  domain: "https://aquatorqueplumbing.com",
 } as const;
 
 export const SERVICES: Service[] = [
