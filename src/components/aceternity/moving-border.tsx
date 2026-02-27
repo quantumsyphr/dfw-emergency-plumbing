@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useRef, useId } from "react";
+import { useRef } from "react";
 
 interface MovingBorderProps {
   children: React.ReactNode;
@@ -23,13 +23,12 @@ export function MovingBorder({
   as: Component = "div",
 }: MovingBorderProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const id = useId();
 
   return (
     <Component
       ref={containerRef}
       className={cn(
-        "group relative rounded-2xl p-[1px]",
+        "group relative overflow-hidden rounded-2xl p-[1px]",
         containerClassName
       )}
       style={{ borderRadius }}
