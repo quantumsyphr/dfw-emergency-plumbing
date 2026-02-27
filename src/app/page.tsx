@@ -1,65 +1,137 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
+import Script from "next/script";
+import { HeroSection } from "@/components/sections/hero-section";
+import { TrustBadges } from "@/components/sections/trust-badges";
+import { ProcessSection } from "@/components/sections/process-section";
+import { ServicesSection } from "@/components/sections/services-section";
+import { PersuasiveCTA } from "@/components/sections/persuasive-cta";
+import { TestimonialsCarousel } from "@/components/sections/testimonials-carousel";
+import { FAQSection } from "@/components/sections/faq-section";
+import { ContactSection } from "@/components/sections/contact-section";
+import { DFW_CITIES } from "@/lib/cities";
+import { SERVICES, COMPANY } from "@/lib/constants";
+import {
+  generateLocalBusinessJsonLd,
+  generateFAQJsonLd,
+  generateServiceJsonLd,
+} from "@/lib/seo";
+import type { FAQ } from "@/types";
+import { MapPin } from "lucide-react";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "DFW Emergency Plumber | 24/7 Fast Response | FastFlow Plumbing",
+  description:
+    "Need an emergency plumber in DFW? FastFlow Plumbing offers 24/7 service across Dallas-Fort Worth with 30-minute response times. Call now for burst pipes, drain cleaning, leak detection & more.",
+  openGraph: {
+    title: "DFW Emergency Plumber | 24/7 Fast Response | FastFlow Plumbing",
+    description:
+      "Need an emergency plumber in DFW? FastFlow Plumbing offers 24/7 service across Dallas-Fort Worth with 30-minute response times. Call now!",
+    url: COMPANY.domain,
+  },
+  twitter: {
+    title: "DFW Emergency Plumber | 24/7 Fast Response | FastFlow Plumbing",
+    description:
+      "Need an emergency plumber in DFW? FastFlow Plumbing offers 24/7 service across Dallas-Fort Worth with 30-minute response times. Call now!",
+  },
+};
+
+const HOMEPAGE_FAQS: FAQ[] = [
+  {
+    question: "How much does an emergency plumber cost in DFW?",
+    answer:
+      "Emergency plumbing rates in the DFW metroplex typically range from $150-$500 depending on the issue. We provide upfront pricing with no hidden fees before any work begins.",
+  },
+  {
+    question: "How fast can a plumber get to my house in DFW?",
+    answer:
+      "Our plumbing trucks are dispatched 24/7 across the entire DFW metroplex and typically arrive within 30 minutes of your call.",
+  },
+  {
+    question: "What plumbing emergencies do you handle?",
+    answer:
+      "We handle all plumbing emergencies including burst pipes, drain clogs, water heater failures, gas leaks, sewer backups, toilet overflows, and leak detection.",
+  },
+  {
+    question: "Which cities do you serve in DFW?",
+    answer:
+      "We serve 10 major cities across the DFW metroplex: Dallas, Fort Worth, Arlington, Plano, Irving, Garland, Frisco, McKinney, Grand Prairie, and Denton.",
+  },
+  {
+    question: "Are you available 24/7 in the DFW area?",
+    answer:
+      "Absolutely. Our emergency plumbing team is available 24 hours a day, 7 days a week, including holidays, across the entire DFW metroplex. Call anytime and we will be there.",
+  },
+];
+
+const localBusinessJsonLd = generateLocalBusinessJsonLd();
+const faqJsonLd = generateFAQJsonLd(HOMEPAGE_FAQS);
+const serviceJsonLd = generateServiceJsonLd(SERVICES);
+
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <Script
+        id="jsonld-local-business"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+      />
+      <Script
+        id="jsonld-faq"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <Script
+        id="jsonld-service"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+
+      <HeroSection />
+      <TrustBadges />
+      <ProcessSection />
+      <ServicesSection />
+
+      <PersuasiveCTA
+        variant="problem"
+        headline="Ready to take care of your plumbing problem?"
+        body="Don't let a plumbing emergency ruin your day. Our licensed DFW plumbers are standing by 24/7 to handle any issue — fast, affordable, and guaranteed."
+      />
+
+      <TestimonialsCarousel />
+
+      {/* Service Areas Section */}
+      <section className="bg-white py-16 px-4">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="mb-4 text-center text-3xl font-bold text-slate-900">
+            Service Areas
+          </h2>
+          <p className="mb-10 text-center text-slate-600">
+            We proudly serve 10 cities across the Dallas–Fort Worth metroplex.
           </p>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
+            {DFW_CITIES.map((city) => (
+              <Link
+                key={city.slug}
+                href={`/${city.slug}`}
+                className="flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-blue-300 hover:bg-blue-50"
+              >
+                <MapPin className="size-4 text-blue-700 shrink-0" />
+                {city.name}
+              </Link>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+
+      <PersuasiveCTA
+        variant="nearme"
+        headline="Need urgent plumbers near me?"
+        body="Wherever you are in the DFW metroplex, our trucks are nearby and ready to roll. Fast response, fair pricing, and expert service — every time."
+      />
+
+      <FAQSection faqs={HOMEPAGE_FAQS} />
+      <ContactSection />
+    </>
   );
 }
