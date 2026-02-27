@@ -12,7 +12,7 @@ export function LampEffect({ children, className }: LampEffectProps) {
   return (
     <div
       className={cn(
-        "relative flex min-h-[400px] flex-col items-center justify-center overflow-hidden bg-slate-950 w-full rounded-md z-0",
+        "relative flex min-h-[400px] flex-col items-center justify-center overflow-hidden bg-slate-950 w-full z-0",
         className
       )}
     >
