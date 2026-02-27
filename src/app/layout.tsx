@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 import { StickyHeader } from "@/components/sticky-header";
 import { Footer } from "@/components/footer";
 import { FloatingCallButton } from "@/components/floating-call-button";
@@ -40,12 +41,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} antialiased`}>
-        <StickyHeader />
-        <main className="pt-16">{children}</main>
-        <Footer />
-        <FloatingCallButton />
+        <ThemeProvider>
+          <StickyHeader />
+          <main className="pt-16">{children}</main>
+          <Footer />
+          <FloatingCallButton />
+        </ThemeProvider>
       </body>
     </html>
   );

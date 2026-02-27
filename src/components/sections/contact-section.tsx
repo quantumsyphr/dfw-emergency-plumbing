@@ -67,7 +67,6 @@ export function ContactSection() {
     if (Object.keys(formErrors).length > 0) return;
 
     try {
-      // Client-side only — no backend yet
       setSubmitted(true);
       setFormData({ name: "", phone: "", email: "", message: "" });
       setTouched({});
@@ -80,36 +79,36 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="relative bg-gradient-to-b from-slate-950 to-slate-900 py-16 px-4 overflow-hidden">
+    <section id="contact" className="relative bg-white dark:bg-gradient-to-b dark:from-slate-950 dark:to-slate-900 py-16 px-4 overflow-hidden">
       {/* Background orbs */}
-      <div className="absolute -top-20 right-0 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
-      <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-indigo-500/10 blur-3xl" />
+      <div className="absolute -top-20 right-0 h-72 w-72 rounded-full bg-blue-100/50 dark:bg-blue-500/10 blur-3xl" />
+      <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-indigo-100/50 dark:bg-indigo-500/10 blur-3xl" />
 
       <div className="relative mx-auto max-w-6xl">
-        <h2 className="mb-12 text-center text-3xl font-bold text-white">
+        <h2 className="mb-12 text-center text-3xl font-bold text-slate-900 dark:text-white">
           Get a Free Quote
         </h2>
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           {/* Left column: Form */}
-          <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-8">
+          <div className="rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 dark:backdrop-blur-md p-8">
             <form onSubmit={handleSubmit} noValidate className="space-y-5">
               {submitted && (
-                <div className="rounded-md bg-green-500/10 border border-green-500/20 p-4 text-green-300 text-sm">
+                <div className="rounded-md bg-green-50 dark:bg-green-500/10 border border-green-200 dark:border-green-500/20 p-4 text-green-800 dark:text-green-300 text-sm">
                   <CheckCircle className="inline size-4 mr-2" />
                   Thank you! We&apos;ll get back to you shortly.
                 </div>
               )}
 
               {submitError && (
-                <div className="rounded-md bg-red-500/10 border border-red-500/20 p-4 text-red-300 text-sm">
+                <div className="rounded-md bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 p-4 text-red-800 dark:text-red-300 text-sm">
                   {submitError}
                 </div>
               )}
 
               <div>
-                <label htmlFor="contact-name" className="mb-1 block text-sm font-medium text-slate-200">
-                  Name <span className="text-red-400">*</span>
+                <label htmlFor="contact-name" className="mb-1 block text-sm font-medium text-slate-700 dark:text-slate-200">
+                  Name <span className="text-red-500 dark:text-red-400">*</span>
                 </label>
                 <Input
                   id="contact-name"
@@ -119,16 +118,14 @@ export function ContactSection() {
                   onChange={(e) => handleChange("name", e.target.value)}
                   onBlur={() => handleBlur("name")}
                   aria-invalid={!!errors.name}
-                  className={`bg-white/5 border-white/10 text-white placeholder:text-slate-500 ${errors.name ? "border-red-500" : ""}`}
+                  className={`bg-white dark:bg-white/5 border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 ${errors.name ? "border-red-500" : ""}`}
                 />
-                {errors.name && (
-                  <p className="mt-1 text-sm text-red-400">{errors.name}</p>
-                )}
+                {errors.name && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.name}</p>}
               </div>
 
               <div>
-                <label htmlFor="contact-phone" className="mb-1 block text-sm font-medium text-slate-200">
-                  Phone <span className="text-red-400">*</span>
+                <label htmlFor="contact-phone" className="mb-1 block text-sm font-medium text-slate-700 dark:text-slate-200">
+                  Phone <span className="text-red-500 dark:text-red-400">*</span>
                 </label>
                 <Input
                   id="contact-phone"
@@ -138,16 +135,14 @@ export function ContactSection() {
                   onChange={(e) => handleChange("phone", e.target.value)}
                   onBlur={() => handleBlur("phone")}
                   aria-invalid={!!errors.phone}
-                  className={`bg-white/5 border-white/10 text-white placeholder:text-slate-500 ${errors.phone ? "border-red-500" : ""}`}
+                  className={`bg-white dark:bg-white/5 border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 ${errors.phone ? "border-red-500" : ""}`}
                 />
-                {errors.phone && (
-                  <p className="mt-1 text-sm text-red-400">{errors.phone}</p>
-                )}
+                {errors.phone && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.phone}</p>}
               </div>
 
               <div>
-                <label htmlFor="contact-email" className="mb-1 block text-sm font-medium text-slate-200">
-                  Email <span className="text-red-400">*</span>
+                <label htmlFor="contact-email" className="mb-1 block text-sm font-medium text-slate-700 dark:text-slate-200">
+                  Email <span className="text-red-500 dark:text-red-400">*</span>
                 </label>
                 <Input
                   id="contact-email"
@@ -157,16 +152,14 @@ export function ContactSection() {
                   onChange={(e) => handleChange("email", e.target.value)}
                   onBlur={() => handleBlur("email")}
                   aria-invalid={!!errors.email}
-                  className={`bg-white/5 border-white/10 text-white placeholder:text-slate-500 ${errors.email ? "border-red-500" : ""}`}
+                  className={`bg-white dark:bg-white/5 border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 ${errors.email ? "border-red-500" : ""}`}
                 />
-                {errors.email && (
-                  <p className="mt-1 text-sm text-red-400">{errors.email}</p>
-                )}
+                {errors.email && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.email}</p>}
               </div>
 
               <div>
-                <label htmlFor="contact-message" className="mb-1 block text-sm font-medium text-slate-200">
-                  Message <span className="text-red-400">*</span>
+                <label htmlFor="contact-message" className="mb-1 block text-sm font-medium text-slate-700 dark:text-slate-200">
+                  Message <span className="text-red-500 dark:text-red-400">*</span>
                 </label>
                 <Textarea
                   id="contact-message"
@@ -175,12 +168,10 @@ export function ContactSection() {
                   onChange={(e) => handleChange("message", e.target.value)}
                   onBlur={() => handleBlur("message")}
                   aria-invalid={!!errors.message}
-                  className={`bg-white/5 border-white/10 text-white placeholder:text-slate-500 ${errors.message ? "border-red-500" : ""}`}
+                  className={`bg-white dark:bg-white/5 border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 ${errors.message ? "border-red-500" : ""}`}
                   rows={4}
                 />
-                {errors.message && (
-                  <p className="mt-1 text-sm text-red-400">{errors.message}</p>
-                )}
+                {errors.message && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.message}</p>}
               </div>
 
               <Button
@@ -197,31 +188,31 @@ export function ContactSection() {
           {/* Right column: Contact info */}
           <div className="space-y-8">
             <div>
-              <h3 className="mb-3 text-xl font-semibold text-white">
+              <h3 className="mb-3 text-xl font-semibold text-slate-900 dark:text-white">
                 Call Us Directly
               </h3>
               <a
                 href={COMPANY.phoneHref}
-                className="inline-flex items-center gap-3 text-3xl font-bold text-red-400 hover:text-red-300 transition-colors"
+                className="inline-flex items-center gap-3 text-3xl font-bold text-red-500 dark:text-red-400 hover:text-red-600 dark:hover:text-red-300 transition-colors"
               >
                 <Phone className="size-8" />
                 {COMPANY.phone}
               </a>
             </div>
 
-            <div className="inline-flex items-center gap-2 rounded-full border border-green-500/20 bg-green-500/10 px-4 py-2 text-sm font-semibold text-green-300">
+            <div className="inline-flex items-center gap-2 rounded-full border border-green-200 dark:border-green-500/20 bg-green-50 dark:bg-green-500/10 px-4 py-2 text-sm font-semibold text-green-700 dark:text-green-300">
               <Clock className="size-4" />
               Available 24/7
             </div>
 
             <div>
-              <h3 className="mb-3 text-xl font-semibold text-white">
+              <h3 className="mb-3 text-xl font-semibold text-slate-900 dark:text-white">
                 Our Services
               </h3>
               <ul className="space-y-2">
                 {SERVICES.map((service) => (
-                  <li key={service.slug} className="flex items-center gap-2 text-sm text-slate-400">
-                    <CheckCircle className="size-4 text-blue-400" />
+                  <li key={service.slug} className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+                    <CheckCircle className="size-4 text-blue-600 dark:text-blue-400" />
                     {service.title}
                   </li>
                 ))}

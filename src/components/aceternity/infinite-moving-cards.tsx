@@ -68,22 +68,22 @@ export function InfiniteMovingCards({
       >
         {items.map((item, idx) => (
           <li
-            className="relative w-[350px] max-w-full shrink-0 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md px-8 py-6 md:w-[450px]"
+            className="relative w-[350px] max-w-full shrink-0 rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 dark:backdrop-blur-md px-8 py-6 md:w-[450px] shadow-sm dark:shadow-none"
             key={`${item.name}-${idx}`}
           >
             {renderItem ? (
               renderItem(item)
             ) : (
               <blockquote>
-                <p className="relative z-20 text-sm leading-relaxed text-slate-300">
+                <p className="relative z-20 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
                   {item.quote}
                 </p>
                 <footer className="relative z-20 mt-4 flex items-center gap-2">
-                  <span className="text-sm font-medium text-white">
+                  <span className="text-sm font-medium text-slate-900 dark:text-white">
                     {item.name}
                   </span>
                   {item.title && (
-                    <span className="text-sm text-slate-400">
+                    <span className="text-sm text-slate-500 dark:text-slate-400">
                       — {item.title}
                     </span>
                   )}

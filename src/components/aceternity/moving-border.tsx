@@ -37,7 +37,7 @@ export function MovingBorder({
       {/* Inner content with glass effect */}
       <div
         className={cn(
-          "relative z-10 bg-slate-900/90 backdrop-blur-xl h-full",
+          "relative z-10 bg-white dark:bg-slate-900/90 backdrop-blur-xl h-full",
           className
         )}
         style={{ borderRadius: `calc(${borderRadius} - 1px)` }}

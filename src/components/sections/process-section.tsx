@@ -16,20 +16,20 @@ const iconMap: Record<string, LucideIcon> = {
 
 export function ProcessSection() {
   return (
-    <section className="relative bg-gradient-to-b from-slate-900 to-slate-950 py-20 px-4 overflow-hidden">
+    <section className="relative bg-white dark:bg-gradient-to-b dark:from-slate-900 dark:to-slate-950 py-20 px-4 overflow-hidden">
       {/* Subtle background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-blue-500/5 blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-blue-100/50 dark:bg-blue-500/5 blur-3xl" />
 
       <div className="relative mx-auto max-w-6xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-4 text-center text-3xl font-bold text-white md:text-4xl"
+          className="mb-4 text-center text-3xl font-bold text-slate-900 dark:text-white md:text-4xl"
         >
           How It Works
         </motion.h2>
-        <p className="mb-14 text-center text-slate-400 max-w-lg mx-auto">
+        <p className="mb-14 text-center text-slate-500 dark:text-slate-400 max-w-lg mx-auto">
           From your first call to job done — here&apos;s what to expect.
         </p>
 
@@ -46,18 +46,18 @@ export function ProcessSection() {
               >
                 <MovingBorder
                   containerClassName="h-full"
-                  className="bg-slate-900/80 backdrop-blur-xl"
+                  className="bg-white dark:bg-slate-900/80 backdrop-blur-xl"
                   duration={4 + i}
                 >
                   <div className="flex flex-col items-center gap-4 p-6 text-center">
                     <div className="flex size-12 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-sm font-bold text-white shadow-lg shadow-blue-500/25">
                       {step.stepNumber}
                     </div>
-                    {Icon && <Icon className="size-7 text-blue-400" />}
-                    <h3 className="text-lg font-semibold text-white">
+                    {Icon && <Icon className="size-7 text-blue-600 dark:text-blue-400" />}
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
                       {step.title}
                     </h3>
-                    <p className="text-sm text-slate-400 leading-relaxed">
+                    <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
                       {step.description}
                     </p>
                   </div>
