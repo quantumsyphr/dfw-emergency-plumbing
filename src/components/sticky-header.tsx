@@ -22,48 +22,40 @@ export function StickyHeader() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         isScrolled
-          ? "bg-white/90 backdrop-blur-md shadow-md"
-          : "bg-white"
+          ? "bg-slate-950/80 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/10"
+          : "bg-transparent"
       )}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <Wrench className="size-6 text-brand-primary" />
-            <span className="text-lg font-bold text-brand-primary">
+            <Wrench className="size-6 text-blue-400" />
+            <span className="text-lg font-bold text-white">
               {COMPANY.name}
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
-            {/* City Dropdown */}
             <div className="relative">
               <button
                 onClick={() => setIsCityDropdownOpen(!isCityDropdownOpen)}
                 onBlur={() => setTimeout(() => setIsCityDropdownOpen(false), 150)}
-                className="flex items-center gap-1 text-sm font-medium text-brand-text-muted hover:text-brand-primary transition-colors"
+                className="flex items-center gap-1 text-sm font-medium text-slate-300 hover:text-white transition-colors"
                 aria-expanded={isCityDropdownOpen}
                 aria-haspopup="true"
               >
                 Service Areas
-                <ChevronDown
-                  className={cn(
-                    "size-4 transition-transform",
-                    isCityDropdownOpen && "rotate-180"
-                  )}
-                />
+                <ChevronDown className={cn("size-4 transition-transform", isCityDropdownOpen && "rotate-180")} />
               </button>
               {isCityDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-56 rounded-md bg-white shadow-lg ring-1 ring-brand-border py-1">
+                <div className="absolute top-full left-0 mt-2 w-56 rounded-xl bg-slate-900/90 backdrop-blur-xl border border-white/10 shadow-xl py-1">
                   {DFW_CITIES.map((city) => (
                     <Link
                       key={city.slug}
                       href={`/${city.slug}`}
-                      className="block px-4 py-2 text-sm text-brand-text-muted hover:bg-brand-surface hover:text-brand-primary transition-colors"
+                      className="block px-4 py-2 text-sm text-slate-300 hover:bg-white/10 hover:text-white transition-colors"
                       onClick={() => setIsCityDropdownOpen(false)}
                     >
                       {city.name}
@@ -73,24 +65,21 @@ export function StickyHeader() {
               )}
             </div>
 
-            {/* Phone Link */}
             <a
               href={COMPANY.phoneHref}
-              className="flex items-center gap-1.5 text-sm font-medium text-brand-text hover:text-brand-primary transition-colors"
+              className="flex items-center gap-1.5 text-sm font-medium text-slate-300 hover:text-white transition-colors"
             >
               <Phone className="size-4" />
               {COMPANY.phone}
             </a>
 
-            {/* Call Now CTA */}
-            <Button asChild className="bg-brand-accent hover:bg-brand-accent/90 text-white">
+            <Button asChild className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white border-0 shadow-lg shadow-red-500/25">
               <a href={COMPANY.phoneHref}>Call Now</a>
             </Button>
           </nav>
 
-          {/* Mobile Controls */}
           <div className="flex md:hidden items-center gap-3">
-            <Button asChild size="sm" className="bg-brand-accent hover:bg-brand-accent/90 text-white">
+            <Button asChild size="sm" className="bg-gradient-to-r from-red-500 to-red-600 text-white border-0">
               <a href={COMPANY.phoneHref}>
                 <Phone className="size-4" />
                 <span className="sr-only">Call Now</span>
@@ -98,7 +87,7 @@ export function StickyHeader() {
             </Button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-brand-text-muted hover:text-brand-primary transition-colors"
+              className="p-2 text-slate-300 hover:text-white transition-colors"
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}
             >
@@ -108,27 +97,21 @@ export function StickyHeader() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-brand-border bg-white">
+        <div className="md:hidden border-t border-white/10 bg-slate-950/95 backdrop-blur-xl">
           <div className="px-4 py-4 space-y-3">
-            <a
-              href={COMPANY.phoneHref}
-              className="flex items-center gap-2 text-sm font-medium text-brand-text"
-            >
+            <a href={COMPANY.phoneHref} className="flex items-center gap-2 text-sm font-medium text-white">
               <Phone className="size-4" />
               {COMPANY.phone}
             </a>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-brand-text-muted mb-2">
-                Service Areas
-              </p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Service Areas</p>
               <div className="grid grid-cols-2 gap-1">
                 {DFW_CITIES.map((city) => (
                   <Link
                     key={city.slug}
                     href={`/${city.slug}`}
-                    className="px-3 py-2 text-sm text-brand-text-muted hover:text-brand-primary hover:bg-brand-surface rounded-md transition-colors"
+                    className="px-3 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/10 rounded-md transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {city.name}

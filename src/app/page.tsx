@@ -101,12 +101,13 @@ export default function HomePage() {
       <TestimonialsCarousel />
 
       {/* Service Areas Section */}
-      <section className="bg-white py-16 px-4">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="mb-4 text-center text-3xl font-bold text-slate-900">
+      <section className="relative bg-gradient-to-b from-slate-900 to-slate-950 py-16 px-4 overflow-hidden">
+        <div className="absolute top-0 right-1/3 h-48 w-64 rounded-full bg-cyan-500/10 blur-3xl" />
+        <div className="relative mx-auto max-w-6xl">
+          <h2 className="mb-4 text-center text-3xl font-bold text-white">
             Service Areas
           </h2>
-          <p className="mb-10 text-center text-slate-600">
+          <p className="mb-10 text-center text-slate-400">
             We proudly serve 10 cities across the Dallas–Fort Worth metroplex.
           </p>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
@@ -114,9 +115,9 @@ export default function HomePage() {
               <Link
                 key={city.slug}
                 href={`/${city.slug}`}
-                className="flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-3 text-sm font-medium text-slate-900 transition-colors hover:border-blue-300 hover:bg-blue-50"
+                className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm px-4 py-3 text-sm font-medium text-slate-200 transition-all hover:border-blue-500/30 hover:bg-white/10"
               >
-                <MapPin className="size-4 text-blue-700 shrink-0" />
+                <MapPin className="size-4 text-blue-400 shrink-0" />
                 {city.name}
               </Link>
             ))}

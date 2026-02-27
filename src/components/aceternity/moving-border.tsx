@@ -1,8 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useId } from "react";
 
 interface MovingBorderProps {
   children: React.ReactNode;
@@ -16,7 +15,7 @@ interface MovingBorderProps {
 
 export function MovingBorder({
   children,
-  duration = 2000,
+  duration = 3,
   borderRadius = "1rem",
   containerClassName,
   borderClassName,
@@ -24,43 +23,38 @@ export function MovingBorder({
   as: Component = "div",
 }: MovingBorderProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const id = useId();
 
   return (
     <Component
       ref={containerRef}
       className={cn(
-        "relative overflow-hidden rounded-2xl bg-transparent p-[1px]",
+        "group relative rounded-2xl p-[1px]",
         containerClassName
       )}
       style={{ borderRadius }}
     >
+      {/* Animated gradient border */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 overflow-hidden"
         style={{ borderRadius }}
       >
-        <motion.div
+        <div
           className={cn(
-            "absolute h-20 w-20 rounded-full bg-[radial-gradient(#1E40AF_40%,transparent_60%)] opacity-80",
+            "absolute inset-[-100%] animate-spin-slow",
             borderClassName
           )}
-          animate={{
-            x: [0, 200, 200, 0, 0],
-            y: [0, 0, 200, 200, 0],
-          }}
-          transition={{
-            duration: duration / 1000,
-            repeat: Infinity,
-            ease: "linear",
-          }}
           style={{
-            top: "-10px",
-            left: "-10px",
+            background: `conic-gradient(from 0deg, transparent 0%, #3b82f6 10%, #06b6d4 20%, #8b5cf6 30%, transparent 40%)`,
+            animationDuration: `${duration}s`,
           }}
         />
       </div>
+
+      {/* Inner content with glass effect */}
       <div
         className={cn(
-          "relative z-10 rounded-[calc(1rem-1px)] bg-white",
+          "relative z-10 bg-white/80 backdrop-blur-xl",
           className
         )}
         style={{ borderRadius: `calc(${borderRadius} - 1px)` }}

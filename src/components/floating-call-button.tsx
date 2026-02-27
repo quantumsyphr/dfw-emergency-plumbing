@@ -10,7 +10,7 @@ export function FloatingCallButton() {
       <Button
         asChild
         size="lg"
-        className="bg-brand-accent hover:bg-brand-accent/90 text-white rounded-full px-6 shadow-lg"
+        className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-full px-6 shadow-lg shadow-red-500/30 border-0"
       >
         <a href={COMPANY.phoneHref}>
           <Phone className="size-5" />

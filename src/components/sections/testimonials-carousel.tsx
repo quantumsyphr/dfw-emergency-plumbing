@@ -20,7 +20,7 @@ function StarRating({ rating }: { rating: number }) {
           className={`h-4 w-4 ${
             i < rating
               ? "fill-yellow-400 text-yellow-400"
-              : "fill-none text-slate-300"
+              : "fill-none text-slate-600"
           }`}
         />
       ))}
@@ -30,11 +30,15 @@ function StarRating({ rating }: { rating: number }) {
 
 export function TestimonialsCarousel() {
   return (
-    <section className="py-16 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-slate-900 mb-8">
+    <section className="relative py-16 bg-gradient-to-b from-slate-950 to-slate-900 overflow-hidden">
+      {/* Subtle gradient orb */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-64 w-96 rounded-full bg-blue-500/10 blur-3xl" />
+
+      <div className="relative max-w-7xl mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center text-white mb-2">
           What Our Customers Say
         </h2>
+        <p className="text-center text-slate-400 mb-8">Real reviews from DFW homeowners</p>
         <InfiniteMovingCards
           items={items}
           speed="slow"
@@ -43,15 +47,15 @@ export function TestimonialsCarousel() {
             return (
               <blockquote>
                 <StarRating rating={testimonial.rating ?? 5} />
-                <p className="relative z-20 mt-3 text-sm leading-relaxed text-slate-600">
+                <p className="relative z-20 mt-3 text-sm leading-relaxed text-slate-300">
                   &ldquo;{item.quote}&rdquo;
                 </p>
                 <footer className="relative z-20 mt-4 flex items-center justify-between">
-                  <span className="text-sm font-medium text-slate-900">
+                  <span className="text-sm font-medium text-white">
                     {item.name}
                   </span>
                   {item.title && (
-                    <span className="text-sm text-slate-500">{item.title}</span>
+                    <span className="text-sm text-slate-400">{item.title}</span>
                   )}
                 </footer>
               </blockquote>

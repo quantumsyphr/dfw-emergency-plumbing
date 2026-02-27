@@ -25,13 +25,12 @@ export function PersuasiveCTA({
       <h2 className="text-3xl font-bold text-white md:text-4xl">
         {headline}
       </h2>
-      <p className="max-w-2xl text-lg text-slate-200">
+      <p className="max-w-2xl text-lg text-slate-300">
         {bodyText}
       </p>
       <Button
-        variant="destructive"
         size="lg"
-        className="bg-brand-accent hover:bg-brand-accent/90 text-lg px-8 py-6"
+        className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white text-lg px-8 py-6 shadow-lg shadow-red-500/25 border-0"
         asChild
       >
         <a href={COMPANY.phoneHref}>
@@ -51,8 +50,13 @@ export function PersuasiveCTA({
   }
 
   return (
-    <section className="bg-gradient-to-r from-brand-primary to-blue-600 py-20">
-      {content}
+    <section className="relative bg-gradient-to-r from-blue-950 via-indigo-950 to-blue-950 py-20 overflow-hidden">
+      {/* Gradient orbs */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-1/4 h-48 w-48 rounded-full bg-blue-500/20 blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 h-48 w-48 rounded-full bg-indigo-500/20 blur-3xl" />
+      </div>
+      <div className="relative z-10">{content}</div>
     </section>
   );
 }

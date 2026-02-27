@@ -5,7 +5,10 @@ import { DFW_CITIES } from "@/lib/cities";
 
 export function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-300">
+    <footer className="relative bg-slate-950 text-slate-400 overflow-hidden">
+      {/* Subtle top border glow */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Column 1: Branding */}
@@ -97,10 +100,10 @@ export function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-slate-800">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+      <div className="border-t border-white/5">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-600">
           <p>&copy; {new Date().getFullYear()} {COMPANY.name}. All rights reserved.</p>
-          <Link href="/privacy" className="hover:text-slate-300 transition-colors">
+          <Link href="/privacy" className="hover:text-slate-400 transition-colors">
             Privacy Policy
           </Link>
         </div>
